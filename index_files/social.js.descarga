@@ -1,0 +1,28 @@
+//FACEBOOK
+(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id))
+        return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.8&appId=" + $FACEBOOK_APP_ID;
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+//COMPARTIR CONTENIDO
+function shareonfacebook(data) {
+//    console.log(data);
+    FB.ui({
+        method: 'feed',
+        link: data['link'],
+        picture: data['img'],
+        name: data['name'],
+        caption: data['caption'],
+        description: data['description']
+    }, function (response) {
+        if (!(response === undefined)) {
+//            console.log(response);
+            registrar_facebook_share(response);
+        }
+    });
+}

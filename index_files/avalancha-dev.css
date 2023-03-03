@@ -1,0 +1,4 @@
+/* Correcciones aplicadas posteriormente al primer paso a producción */
+.thumbs-cont article figcaption>a{
+    height: initial;
+}
